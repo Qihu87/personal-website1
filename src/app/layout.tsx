@@ -2,8 +2,8 @@ import './globals.css'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import BackgroundGlow from './components/BackgroundGlow'
 import ThemeToggle from '../components/ThemeToggle'
+import BackgroundImage from '../components/BackgroundImage'
 
 export const metadata: Metadata = {
   title: 'AI TK - 0基础小白的AI中文学习网站',
@@ -18,7 +18,6 @@ export default function RootLayout({
   return (
     <html lang="zh">
       <body>
-        <BackgroundGlow />
         <nav className="navbar">
           <div className="nav-content">
             <Link href="/" className="logo">
@@ -77,7 +76,10 @@ export default function RootLayout({
             </div>
           </div>
         </nav>
-        {children}
+        <BackgroundImage />
+        <div className="main-content">
+          {children}
+        </div>
         <ThemeToggle />
       </body>
     </html>

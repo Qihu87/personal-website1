@@ -5,11 +5,6 @@ import Image from 'next/image'
 export default function Home() {
   return (
     <main>
-      {/* 背景图片 */}
-      <div className="background-container">
-        <img src="/images/hero/bg3.png" alt="背景图片" />
-      </div>
-      
       {/* 英雄区域 */}
       <section className="hero">
         <div className="hero-content">
@@ -30,7 +25,7 @@ export default function Home() {
             <span className="avatar-text">
               小学文案介绍小学文案介绍小学文案介绍小学文案介绍
               小学文案介绍小学文案介绍小学文案介绍小学文案介绍小学文案介绍
-              小学文案介绍小学文案介绍小学文案
+              小学文案介绍小学文案介绍小���文案
             </span>
           </div>
           <button className="secondary-button">敬期待</button>
@@ -64,12 +59,7 @@ export default function Home() {
             {/* 图片格式工具卡片 */}
             <Link href="#" className="tool-card">
               <div className="tool-icon">
-                <Image
-                  src="/images/icons/chatggs.png"
-                  alt="图片格式"
-                  width={60}
-                  height={60}
-                />
+                <span style={{ fontSize: '24px' }}>?</span>
               </div>
               <div className="tool-content">
                 <div className="tool-header">
@@ -83,12 +73,7 @@ export default function Home() {
             {/* 格式转换工具卡片 */}
             <Link href="#" className="tool-card">
               <div className="tool-icon">
-                <Image
-                  src="/images/icons/chatggs.png"
-                  alt="图片格式转换工具"
-                  width={60}
-                  height={60}
-                />
+                <span style={{ fontSize: '24px' }}>?</span>
               </div>
               <div className="tool-content">
                 <div className="tool-header">
@@ -102,12 +87,7 @@ export default function Home() {
             {/* 图片转换工具卡片 */}
             <Link href="#" className="tool-card">
               <div className="tool-icon">
-                <Image
-                  src="/images/icons/chatggs.png"
-                  alt="图片格式转换"
-                  width={60}
-                  height={60}
-                />
+                <span style={{ fontSize: '24px' }}>?</span>
               </div>
               <div className="tool-content">
                 <div className="tool-header">
