@@ -100,7 +100,7 @@ body::before {
   margin-left: 24px;  /* 与logo的间距 */
 }
 
-/* 导航链接样式 - 单个导航链接的样式 */
+/* 导航���接样式 - 单个导航链接的样式 */
 .nav-links a {
   color: var(--text-primary);
   text-decoration: none;
@@ -208,7 +208,7 @@ body::before {
   transition: all 0.3s ease;
 }
 
-/* 高亮文字样式 - 使用主���文字 */
+/* 高亮文字样式 - 使用主文字 */
 .highlight {
   color: var(--primary-color);
 }
@@ -264,8 +264,8 @@ body::before {
 /* 次要按钮样式 */
 .secondary-button {
   background-color: transparent;
-  color: var(--text-light);  /* 深色模式下的文字颜色 */
-  border: 1px solid var(--text-light);  /* 深色模式下的边框颜色 */
+  color: var(--text-light);
+  border: 1px solid var(--text-light);
   padding: 20px 32px;
   border-radius: 20px;
   font-size: 24px;
@@ -276,25 +276,25 @@ body::before {
   align-items: center;
   position: relative;
   width: auto;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);  /* 只保留padding的过渡 */
   overflow: hidden;
 }
 
 /* 浅色模式下的次要按钮样式 */
 [data-theme="light"] .secondary-button {
-  color: #000000;  /* 浅色模式下的文字颜色 */
-  border-color: #000000;  /* 浅色模式下的边框颜色 */
+  color: #000000;
+  border-color: #000000;
 }
 
 [data-theme="light"] .secondary-button .button-icon {
-  filter: brightness(0);  /* 将图标变为黑色 */
+  filter: brightness(0);
 }
 
 /* 按钮文字容器 */
 .secondary-button span {
   position: relative;
   white-space: nowrap;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);  /* 文字位置的过渡效果 */
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);  /* 只保留transform的过渡 */
 }
 
 /* 按钮内图标样式 */
@@ -306,7 +306,7 @@ body::before {
   right: 24px;
   opacity: 0;
   transform: translateX(20px);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);  /* 只保留transform和opacity的过渡 */
   pointer-events: none;
 }
 
@@ -713,7 +713,7 @@ body::before {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--primary-color);
+  background: #ffffff;
   border: none;
   cursor: pointer;
   display: flex;
@@ -722,7 +722,7 @@ body::before {
   z-index: 1000;
   transition: all 0.3s ease;
   font-size: 24px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 40px rgba(0, 0, 0, 0.04);
 }
 
 .theme-toggle:hover {
@@ -755,7 +755,7 @@ body::before {
   padding: 16px;
   overflow: hidden;
   text-decoration: none; /* 移除链接下划线 */
-  display: block; /* 让接占满整个卡片区域 */
+  display: block; /* 让接占��整个卡片区域 */
   transition: transform 0.2s ease; /* 添加悬停动画 */
 }
 
@@ -810,7 +810,7 @@ body::before {
 
 /* 浅色题下的导航栏样式 */
 [data-theme="light"] .navbar {
-  background: linear-gradient(90deg, rgb(219 246 225 / 50%) 0%, rgb(237 247 241 / 50%) 100%);/* 浅色主题下的半透明背景 */
+  background: linear-gradient(90deg, rgb(236 248 238 / 63%) 0%, rgb(237 247 241 / 50%) 100%);/* 浅色主题下的半透明背景 */
   /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); 浅色主题下的边框 */
 }
 
