@@ -64,7 +64,7 @@ export default function RootLayout({
                     className="xiaohongshu-icon"
                   />
                 </Link>
-                <Link href="/youtube" className="social-icon">
+                <Link href="https://www.youtube.com/@AI-tkz" target="_blank" className="social-icon">
                   <Image 
                     src="/images/social/youtube.svg"
                     alt="YouTube"
@@ -73,7 +73,7 @@ export default function RootLayout({
                     className="youtube-icon"
                   />
                 </Link>
-                <Link href="/bilibili" className="social-icon">
+                <Link href="https://b23.tv/eLI5J3d" target="_blank" className="social-icon">
                   <Image 
                     src="/images/social/bilibili.svg"
                     alt="哔哩哔哩"
