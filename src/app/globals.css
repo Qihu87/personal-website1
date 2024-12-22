@@ -1,0 +1,804 @@
+/* CSS变量定义 - 定义全局使用的颜色变量 */
+:root {
+  --primary-color: #45FF83;  /* 主题色-绿色 */
+  --bg-dark: #0A0A0A;        /* 背景色-深色 */
+  --text-light: #FFFFFF;     /* 文字颜色-亮色 */
+  --text-gray: #666666;      /* 文字颜色-灰色 */
+  --bg-gradient: linear-gradient(119deg, #17181F 12.9%, #0D0E12 45.05%, #000 88.43%);
+  --text-primary: #FFFFFF;
+  --text-secondary: #666666;
+  --nav-bg: linear-gradient(90deg, #1A2525 0%, #090A0D 100%);
+}
+
+/* 浅色主题变量 */
+[data-theme="light"] {
+  --bg-gradient: #F1F7F3;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --nav-bg: rgba(241, 247, 243, 0.8);
+}
+
+/* 全局样式重置 - 清除默认边距和设置盒模型 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 页面基础样式 - 设置渐变背景色、字体等基础样式 */
+body {
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* 背景容器 */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-gradient);
+  z-index: -2;  /* 渐变背景在最底层 */
+}
+
+/* 导航栏容器样式 - 固定在顶部的半透明导航栏 */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(90deg, rgb(29 47 40 / 87%) 0%, rgb(13 17 19 / 40%) 50%, rgb(6 10 9 / 55%) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(24px);
+  padding: 12px 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+/* 导航栏内容布局 - 控制导航栏内部元素的排列 */
+.nav-content {
+  margin: 0 auto;
+  padding: 0 40px;  /* 设置左右边距40px */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+/* Logo样式 - 网站Logo的基础样式 */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  object-fit: contain;
+  width: 134px;
+  height: 54px;
+}
+
+/* Logo样式 - 深色模式 */
+[data-theme="dark"] .logo img {
+  content: url('/images/logo/logo.png');
+}
+
+/* Logo样式 - 浅色模式 */
+[data-theme="light"] .logo img {
+  content: url('/images/logo/qianlogo.png');
+}
+
+/* 导航链接组样式 - 包含所有导航链接的容器 */
+.nav-links {
+  display: flex;
+  gap: 2px;  /* 导航项之间的间距 */
+  margin-left: 24px;  /* 与logo的间距 */
+}
+
+/* ���航链接样式 - 单个导航链接的样式 */
+.nav-links a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 18px;
+  padding: 15px 18px;  /* 上下10px，左右18px的内边距 */
+  transition: all 0.2s ease;  /* 所有属性变化的过渡效果 */
+  white-space: nowrap;  /* 防止文字换行 */
+  border-radius: 12px;  /* 圆角效果 */
+}
+
+/* 深色模式下的导航链接悬停效果 */
+[data-theme="dark"] .nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+}
+
+/* 浅色模式下的导航链接悬停效果 */
+[data-theme="light"] .nav-links a:hover {
+  background-color: rgba(0, 0, 0, 0.05); /* 5% 黑色背景 */
+  color: var(--text-primary); /* 保持文字颜色不变 */
+}
+
+/* 移除原有的悬停效果 */
+.nav-links a:hover {
+  background-color: transparent; /* 移除默认的背景色 */
+}
+
+/* 社交链接组样式 - 右侧社交媒体链接的容器 */
+.social-links {
+  display: flex;
+  gap: 12px;
+  margin-left: auto;
+  align-items: center;
+}
+
+/* 社交链接基础样式 */
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+/* 社交链接悬停效果 */
+.social-icon:hover {
+  opacity: 0.8;
+}
+
+/* 小书图标特定样式 */
+.xiaohongshu-icon {
+  width: 103px !important;
+  height: 54px !important;
+}
+
+/* YouTube图标特定样式 */
+.youtube-icon {
+  width: 106px !important;
+  height: 54px !important;
+}
+
+/* 哔哩哔哩图标特定样式 */
+.bilibili-icon {
+  width: 60px !important;
+  height: 54px !important;
+}
+
+/* 微信图标特定样式 */
+.wechat-icon {
+  width: 60px !important;
+  height: 54px !important;
+}
+
+/* 英雄区域样式 - 站首屏大图区域 */
+.hero {
+  position: relative;
+  z-index: 1;
+  min-height: calc(100px - 78px);  /* 减去导航栏的高度 */
+  margin-top: 222px;  /* 设置与导航栏的间距为142px */
+  margin-bottom: 108px;
+  padding: 0 100px;  /* 移除顶部内边距，只保留左右内边距 */
+  display: flex;
+  align-items: flex-start;  /* 改为顶部对齐 */
+  justify-content: space-between;
+  max-width: 1640px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 48px;
+}
+
+/* 英雄区域内容样式 - 左侧文字内容区域 */
+.hero-content {
+  flex: 1;
+  padding-top: 0;
+  max-width: 800px;
+  transition: all 0.3s ease;
+}
+
+/* 英雄区域标题样式 */
+.hero-title {
+  font-size: 60px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  width: 800px;
+  max-width: 100%;
+  transition: all 0.3s ease;
+}
+
+/* 高亮文字样式 - 使用主题色的文字 */
+.highlight {
+  color: var(--primary-color);
+}
+
+/* 白色文字样式 */
+.white-text {
+  color: var(--text-light);  /* 使用预定义的白色变量 */
+}
+
+/* 英文区域描述文字样式 */
+.hero-description {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.2); /* 40% 透明度的白色 */
+  margin-bottom: 60px;
+  max-width: 1000px;
+}
+
+/* 主要按钮样式 */
+.primary-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  color: var(--bg-dark);
+  border: none;
+  min-width: 220px;
+  height: 80px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: none;
+}
+
+/* 按钮文字容器 */
+.primary-button span {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  transition: font-size 0.3s ease;
+  padding: 0;
+  white-space: nowrap;
+}
+
+/* 主要按钮悬停效果 */
+.primary-button:hover {
+}
+
+/* 按钮文字悬停效果 */
+.primary-button:hover span {
+  font-size: 28px;
+}
+
+/* 次要按钮样式 */
+.secondary-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+  border: none;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+/* 次要按钮悬停效果 */
+.secondary-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 工具卡片区域样式 */
+.tools-section {
+  padding: 40px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  max-width: 1840px;
+  margin: 0 auto;
+}
+
+/* 工具卡片区域内容容器 */
+.section-container,
+.kapian2 {
+  flex: 1 1 clamp(460px, calc(33.333% - 16px), 620px); /* 默认三列布局 */
+  min-height: 530px;
+  background: #FFFFFF;
+  border-radius: 32px;
+  transition: all 0.3s ease;
+}
+
+/* 第三列卡组合 */
+.kapian3 {
+  flex: 1 1 clamp(460px, calc(33.333% - 16px), 620px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: auto;
+}
+
+.kapian31 {
+  width: 100%;
+  min-height: 348px;
+  background: #ffffff;
+  border-radius: 32px;
+  transition: all 0.3s ease;
+}
+
+.kapian32 {
+  width: 100%;
+  height: 174px;
+  display: flex;
+  gap: 16px;
+}
+
+.kapian321,
+.kapian322 {
+  flex: 1 1 calc(50% - 8px);
+  height: 174px;
+  border-radius: 32px;
+  transition: all 0.3s ease;
+  font-size: 24px;
+  font-weight: bold;  /* 添加粗体 */
+  color: #000000;
+  background: #44FF83;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.kapian321 {
+  background: #ffffff;
+}
+
+.kapian322 {
+  background: #44FF83;
+}
+
+/* 响应式布局断点 */
+@media (max-width: 1400px) {
+  /* 首先调整大标题宽度 */
+  .hero-title {
+    width: 600px;
+  }
+  
+  .hero-content {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 1200px) {
+  /* 然后调整右侧内容框宽度 */
+  .avatar-group {
+    max-width: 300px;
+  }
+  
+  .hero-avatars {
+    flex: 0.8;
+  }
+}
+
+@media (max-width: 1000px) {
+  /* 最后改变为竖向布局 */
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+  
+  .hero-content,
+  .hero-title {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .hero-avatars {
+    width: 100%;
+    align-items: flex-start;
+  }
+  
+  .avatar-group {
+    max-width: 100%;
+  }
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  .tools-section {
+    padding: 40px 40px;
+    gap: 12px;
+  }
+  
+  .section-container,
+  .kapian2,
+  .kapian3 {
+    min-height: 400px;
+  }
+  
+  .kapian31 {
+    min-height: 250px;
+  }
+  
+  .kapian321,
+  .kapian322 {
+    height: 120px;
+  }
+}
+
+/* 区标题样式 */
+.section-title {
+  font-size: 28px;
+  color: #000000;
+  margin-bottom: 32px;
+  /* padding: 40px 48px;  修改左右内边距为48px */
+  padding-top: 40px;
+  padding-bottom: 0px;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+/* 具卡片网格布局 */
+.tools-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0 36px;  /* 设置左右内边距为48px */
+  width: 100%;  /* 确保列表宽度适配卡片 */
+}
+
+/* 单个工具卡片样式 */
+.tool-card {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 16px;
+  transition: background-color 0.2s ease;
+}
+
+.tool-card:hover {
+  background-color: #f8f8f8;  /* 悬停时显示背景色 */
+  /* 删除 transform: translateY(-2px) */
+}
+
+/* 工具图标样式 */
+.tool-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;  /* 防止图标被压缩 */
+}
+
+.tool-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 工具卡片内容样式 */
+.tool-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 工具卡片标题和标签容器 */
+.tool-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+/* 工具卡片标签样式 */
+.tool-content h3 {
+  font-size: 18px;
+  color: #000000;
+  font-weight: 500;
+}
+
+/* 工具标签样式 */
+.tool-tag {
+  padding: 4px 6px;
+  background: #45FF83;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #000000;
+  font-weight: 500;
+}
+
+/* 工具卡片描述文样式 */
+.tool-content p {
+  font-size: 14px;
+  color: #D2D2D2;
+  line-height: 1.4;
+}
+
+/* 标签样式 */
+.tag {
+  background-color: rgba(80, 247, 149, 0.1);
+  color: var(--primary-color);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-right: 8px;
+  display: inline-block;
+}
+
+/* 头像组样式 - 右侧头像展区 */
+.hero-avatars {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 24px;
+  padding-top: 0;
+  transition: all 0.3s ease;
+}
+
+/* 头像组容器样式 */
+.avatar-group {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 400px;
+}
+
+/* 头像组文字样式 */
+.avatar-text {
+  color: var(--text-gray);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* 响应式设计 - 移动端适配 */
+@media (max-width: 768px) {
+  /* 在移动端隐藏导航链接和社交链接 */
+  .nav-links, .social-links {
+    display: none;
+  }
+  
+  /* 调整雄区域为垂直布局 */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 80px;
+  }
+  
+  /* 小移动端标题字号 */
+  .hero-title {
+    font-size: 36px;
+  }
+  
+  /* 调整头像组对齐方式 */
+  .hero-avatars {
+    align-items: center;
+  }
+  
+  /* 工具卡片改列显示 */
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+} 
+
+/* 背景光影效果器 */
+.background-glow {
+  position: absolute;
+  top: -150px;
+  left: 0;
+  width: 1920px;
+  height: 1028px;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.5; /* 添加50%的透明 */
+}
+
+/* 背景光影图片样式 */
+.background-glow img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 响应式设计 - 平板设备 (1200px以下) */
+@media (max-width: 1200px) {
+  .tools-section {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .section-container,
+  .kapian2,
+  .kapian3 {
+    min-width: 100%;
+    margin: 0;
+  }
+
+  .kapian31 {
+    min-height: 348px;
+  }
+
+  .kapian32 {
+    min-height: 174px;
+  }
+}
+
+/* 响应式设计 - 动端 (768px以下) */
+@media (max-width: 768px) {
+  .tools-section {
+    padding: 20px;
+  }
+
+  .section-container,
+  .kapian2,
+  .kapian3 {
+    min-width: calc(100% - 40px);  /* 减去左右padding 20px */
+  }
+
+  .kapian32 {
+    flex-direction: column;
+    height: auto;
+    min-height: 368px;  /* 174px * 2 + 20px gap */
+  }
+
+  .kapian321,
+  .kapian322 {
+    min-width: 100%;
+    margin: 8px 0;
+  }
+}
+
+/* 超小屏幕设备 (375px以下) */
+@media (max-width: 375px) {
+  .tools-section {
+    padding: 16px;
+  }
+
+  .section-container,
+  .kapian2,
+  .kapian3 {
+    min-width: calc(100% - 32px);  /* 减去左右padding 16px */
+  }
+}
+
+/* 主题切换钮样式 */
+.theme-toggle {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  font-size: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 推荐视频区域样式 */
+.video-section {
+  padding: 40px 48px;
+  width: 100%;
+}
+
+.video-section-title {
+  font-size: 28px;
+  color: #000000;
+  margin-bottom: 28px;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.video-card {
+  background: #F7F7F7;
+  border-radius: 12px;
+  height: 180px;
+  padding: 16px;
+  overflow: hidden;
+  text-decoration: none; /* 移除链接下划线 */
+  display: block; /* 让接占满整个卡片区域 */
+  transition: transform 0.2s ease; /* 添加悬停动画 */
+}
+
+.video-card:hover {
+  transform: translateY(-2px); /* 悬停时轻微上浮 */
+}
+
+.video-thumbnail {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.video-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-title {
+  font-size: 12px;
+  color: #000000;
+  line-height: 1.4;
+}
+
+/* 视频来源图标器 */
+.video-source {
+  position: absolute;
+  top: 0px;  /* 调整到左上角 */
+  /* left: 12px;  改为左对齐 */
+  width: 80px;  /* 增加容器宽度 */
+  height: 36px;  /* 增加容器高度 */
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 视频来源图标样式 */
+.video-source img {
+  width: 60px;  /* 增加图标尺寸 */
+  height: 32px;  /* 增加图标尺寸 */
+  object-fit: contain;
+}
+
+/* 浅色题下的导航栏样式 */
+[data-theme="light"] .navbar {
+  background: linear-gradient(90deg, rgb(219 246 225 / 50%) 0%, rgb(237 247 241 / 50%) 100%);/* 浅色主题下的半透明背景 */
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); 浅色主题下的边框 */
+}
+
+/* 浅色主题下的文字样式 */
+[data-theme="light"] .hero-title .white-text {
+  color: #000000; /* 黑色文字 */
+}
+
+[data-theme="light"] .hero-description {
+  color: rgba(0, 0, 0, 0.3); /* 保持浅色模式下的样式不变 */
+}
+
+/* 浅色主题下的主按钮样式 */
+[data-theme="light"] .primary-button {
+  background-color: #000000; /* 黑色背景 */
+  color: var(--primary-color); /* 修改为主题色 */
+}
+
+/* 浅色主题下的主按钮文字样式 */
+[data-theme="light"] .primary-button span {
+  color: var(--primary-color); /* 确保文字也是主题色 */
+}
+
+/* 移除浅色主题下按钮hover时的背景透明度变化 */
+[data-theme="light"] .primary-button:hover {
+  /* opacity: 0.9; 删除这行 */
+}
+
+/* YouTube图标 - 深色模式 */
+[data-theme="dark"] .youtube-icon {
+  content: url('/images/social/youtube.svg');
+  width: 106px !important;
+  height: 54px !important;
+}
+
+/* YouTube图标 - 浅色模式 */
+[data-theme="light"] .youtube-icon {
+  content: url('/images/social/qianyoutube.svg');
+  width: 106px !important;
+  height: 54px !important;
+}
+ 
