@@ -1,12 +1,13 @@
 import Link from 'next/link'
 import Banner from '../components/Banner'
+import Image from 'next/image'
 
 export default function Home() {
   return (
     <main>
-      {/* 背景光影效果 */}
-      <div className="background-glow">
-        <img src="/images/hero/bg2.png" alt="background glow effect" />
+      {/* 背景图片 */}
+      <div className="background-container">
+        <img src="/images/hero/bg3.png" alt="背景图片" />
       </div>
       
       {/* 英雄区域 */}
@@ -44,7 +45,12 @@ export default function Home() {
             {/* Chatggs 工具卡片 */}
             <Link href="https://chatggs.com" className="tool-card">
               <div className="tool-icon">
-                <img src="/images/icons/chatggs.png" alt="Chatggs" />
+                <Image
+                  src="/images/icons/chatggs.png"
+                  alt="Chatggs"
+                  width={60}
+                  height={60}
+                />
               </div>
               <div className="tool-content">
                 <div className="tool-header">
@@ -58,7 +64,12 @@ export default function Home() {
             {/* 图片格式工具卡片 */}
             <Link href="#" className="tool-card">
               <div className="tool-icon">
-                <img src="/images/icons/chatggs.png" alt="图片格式" />
+                <Image
+                  src="/images/icons/chatggs.png"
+                  alt="图片格式"
+                  width={60}
+                  height={60}
+                />
               </div>
               <div className="tool-content">
                 <div className="tool-header">
@@ -72,7 +83,12 @@ export default function Home() {
             {/* 格式转换工具卡片 */}
             <Link href="#" className="tool-card">
               <div className="tool-icon">
-                <img src="/images/icons/chatggs.png" alt="图片格式转换工具" />
+                <Image
+                  src="/images/icons/chatggs.png"
+                  alt="图片格式转换工具"
+                  width={60}
+                  height={60}
+                />
               </div>
               <div className="tool-content">
                 <div className="tool-header">
@@ -86,7 +102,12 @@ export default function Home() {
             {/* 图片转换工具卡片 */}
             <Link href="#" className="tool-card">
               <div className="tool-icon">
-                <img src="/images/icons/chatggs.png" alt="图片格式转换" />
+                <Image
+                  src="/images/icons/chatggs.png"
+                  alt="图片格式转换"
+                  width={60}
+                  height={60}
+                />
               </div>
               <div className="tool-content">
                 <div className="tool-header">
@@ -104,9 +125,19 @@ export default function Home() {
             <div className="video-grid">
               <Link href="https://www.youtube.com" className="video-card">
                 <div className="video-thumbnail">
-                  <img src="/images/videos/shipin1.png" alt="视频教程" />
+                  <Image
+                    src="/images/videos/shipin1.png"
+                    alt="视频教程"
+                    width={300}
+                    height={120}
+                  />
                   <div className="video-source">
-                    <img src="/images/social/youtube.svg" alt="YouTube" />
+                    <Image
+                      src="/images/social/youtube.svg"
+                      alt="YouTube"
+                      width={60}
+                      height={32}
+                    />
                   </div>
                 </div>
                 <h3 className="video-title">如何使用 ChatGPT 提高编程效率</h3>
@@ -115,23 +146,38 @@ export default function Home() {
               {/* 其他视频卡片 */}
               <Link href="https://www.youtube.com" className="video-card">
                 <div className="video-thumbnail">
-                  <img src="/images/videos/shipin1.png" alt="视频教程" />
+                  <Image
+                    src="/images/videos/shipin1.png"
+                    alt="视频教程"
+                    width={300}
+                    height={120}
+                  />
                 </div>
                 <h3 className="video-title">AI 辅助编程实战教程</h3>
               </Link>
 
               <Link href="https://www.youtube.com" className="video-card">
                 <div className="video-thumbnail">
-                  <img src="/images/videos/shipin1.png" alt="视频教程" />
+                  <Image
+                    src="/images/videos/shipin1.png"
+                    alt="视频教程"
+                    width={300}
+                    height={120}
+                  />
                 </div>
                 <h3 className="video-title">零基础入门编程指南</h3>
               </Link>
 
               <Link href="https://www.youtube.com" className="video-card">
                 <div className="video-thumbnail">
-                  <img src="/images/videos/shipin1.png" alt="视频教程" />
+                  <Image
+                    src="/images/videos/shipin1.png"
+                    alt="视频教程"
+                    width={300}
+                    height={120}
+                  />
                 </div>
-                <h3 className="video-title">AI 工具使用技巧分</h3>
+                <h3 className="video-title">AI 工具使用技巧</h3>
               </Link>
             </div>
           </div>
