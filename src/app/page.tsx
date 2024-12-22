@@ -20,15 +20,32 @@ export default function Home() {
           </button>
         </div>
         <div className="hero-avatars">
-          {/* 这里放头像组 */}
+          <div className="touxiang">
+            <Image
+              src="/images/hero/touxiang.png"
+              alt="头像"
+              width={129}
+              height={48}
+              priority
+            />
+          </div>
           <div className="avatar-group">
             <span className="avatar-text">
               小学文案介绍小学文案介绍小学文案介绍小学文案介绍
               小学文案介绍小学文案介绍小学文案介绍小学文案介绍小学文案介绍
-              小学文案介绍小学文案介绍小���文案
+              
             </span>
           </div>
-          <button className="secondary-button">敬期待</button>
+          <button className="secondary-button">
+            <span>敬请期待</span>
+            <Image
+              src="/images/icons/tiaozhuan.svg"
+              alt="跳转图标"
+              width={24}
+              height={24}
+              className="button-icon"
+            />
+          </button>
         </div>
       </section>
 
