@@ -32,8 +32,8 @@ export default function RootLayout({
       <body>
         <ThemeProvider 
           attribute="data-theme" 
-          defaultTheme="system"
-          enableSystem={true}
+          defaultTheme="light"
+          enableSystem={false}
           storageKey="theme"
         >
           <nav className="navbar">
